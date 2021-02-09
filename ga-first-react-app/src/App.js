@@ -1,45 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
 import { Component } from "react";
-
-class hireItem extends Component {
+import "./App.css";
+import Counter from "./Counter";
+import HelloWorld from "./HelloWorld";
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: 'Chelsie',
+      courseName: 'Software Engineering',
+      courseSummary: "This is a course by General Assembly"
+    }
+  }
   render() {
-
-    // let image;
-    // if(this.props.imgUrl) {
-    //   image = this.props.imgUrl;
-    // } else {
-    //   image = logo;
-    // }
-
-    return <div>
-    <h1>{this.props.title}</h1>
-    <p>{this.props.summary}</p>
-    <img src={this.props.imgUrl ? this.props.imgUrl : logo} className="App-logo" alt="logo" />
-    </div>
+    return (
+      <div>
+        <div>
+          <h2>App state</h2>
+          <h3>{this.state.firstName}</h3>
+          <h4>{this.state.courseName}</h4>
+        </div>
+        <HelloWorld
+          name={this.state.firstName}
+          title={this.state.courseName}
+          imgSrc={
+            "https://dogtime.com/assets/uploads/2011/03/puppy-development-1280x720.jpg"
+          }
+          summary={this.state.courseSummary}
+        />
+        <Counter name={this.state.firstName} />
+      </div>
+    );
   }
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-
-export default hireItem;
+export default App;
